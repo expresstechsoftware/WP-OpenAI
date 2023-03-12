@@ -100,81 +100,22 @@ class Connect_Ai_Discord_Admin {
 
 	}
 
+	/**
+	 * Undocumented function
+	 *
+	 * @return void
+	 */
 	public function ets_ai_discord_menu() {
-		add_menu_page( esc_html__( 'AI Discord', 'connect-ai-discord' ), esc_html__( ' AI Dis', 'connect-ai-discord' ), 'manage_options', 'connect-ai-discord', array( $this, 'display_ai_discord_page' ) );
+		add_menu_page( esc_html__( 'WP OpenAI', 'connect-ai-discord' ), esc_html__( 'WP-OpenAI', 'connect-ai-discord' ), 'manage_options', 'connect-ai-discord', array( $this, 'display_ai_discord_page' ) );
 	}
 
+	/**
+	 * Undocumented function
+	 *
+	 * @return void
+	 */
 	public function display_ai_discord_page() {
 
-		$ai_token = '';
-		$discord_bot_token ='';
-		$dm_channel_id ='';
-
-
-		// Set the API endpoint URL
-		$url = 'https://api.openai.com/v1/engines/davinci/completions';
-
-		// Set the API request data
-		$data = array(
-			'prompt' => 'Write me an aticle about wordpress in 5 lines',
-			'max_tokens' => 1024,
-			'temperature' => 0.7,
-			'n' => 1,
-			'stop' => ['\n\n'],
-		);
-
-		// Set the API request headers
-		$headers = array(
-			'Content-Type' => 'application/json',
-			'Authorization' => 'Bearer ' . $ai_token,
-		);
-
-		// Make the API request using wp_remote_post()
-		$response = wp_remote_post(
-			$url,
-			array(
-				'body' => wp_json_encode( $data ),
-				'headers' => $headers,
-			)
-		);
-
-		// Check for errors in the API response
-		if ( is_wp_error( $response ) ) {
-			// Handle error
-			var_dump( $response);
-		} else {
-			// Decode the API response
-			$response_data = json_decode($response['body'], true);
-
-			// Get the completed text from the response
-			$completed_text = $response_data['choices'][0]['text'];
-			echo '<pre>';
-			var_dump( $response_data);
-			echo '<pre>';
-
-			return;
-
-			// Send the completed text to the Discord bot
-			$creat_dm_url = 'https://discord.com/api/v10/channels/' . $dm_channel_id . '/messages';
-			$dm_args = array(
-				'method'  => 'POST',
-				'headers' => array(
-					'Content-Type'  => 'application/json',
-					'Authorization' => 'Bot ' . $discord_bot_token,
-				),
-				'body'    => json_encode(
-					array(
-						'content' => sanitize_text_field( trim( wp_unslash( $completed_text ) ) ),
-					)
-				),
-			);
-		}
-		$dm_response = wp_remote_post( $creat_dm_url, $dm_args );
-		
-
-	
-	
-	
 	}
 
 }
