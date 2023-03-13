@@ -159,6 +159,7 @@ class Connect_Ai_Discord_Admin {
 		}
 		$api_keys = sanitize_text_field( $_POST['api_keys'] );
 		$end_point = sanitize_text_field( $_POST['endpoint_url'] );
+		$model_engine = sanitize_text_field( $_POST['model_engine'] );
 		$current_url = sanitize_text_field( $_POST['current_url'] );
 
 
@@ -171,6 +172,10 @@ class Connect_Ai_Discord_Admin {
 			if( isset( $end_point ) ) {
 				update_option( 'ets_wp_openai_end_point' , $end_point );
 			}
+
+			if( isset( $model_engine ) ) {
+				update_option( 'ets_wp_openai_model_engine' , $model_engine );
+			}			
 
 			$message = esc_html__( 'Settings are saved', 'connect-ai-discord' );
 
