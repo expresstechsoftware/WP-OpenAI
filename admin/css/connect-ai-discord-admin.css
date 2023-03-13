@@ -1,4 +1,44 @@
-/**
- * All of the CSS for your admin-specific functionality should be
- * included in this file.
- */
+/* Style for form container */
+.form-container {
+    margin: 40px 0;
+  }
+  
+  /* Style for form table */
+  .form-table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  /* Style for form table row */
+  .form-row {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Style for form table cell */
+  .form-cell {
+    padding: 10px;
+    vertical-align: top;
+  }
+  
+  
+  /* Style for submit button */
+  .form-submit {
+    background-color: #0073aa;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  /* Style for submit button on hover */
+  .form-submit:hover {
+    background-color: #005d82;
+  }
+  
