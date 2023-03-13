@@ -2,6 +2,7 @@
 
 $api_keys = sanitize_text_field( ( trim( get_option( 'ets_wp_openai_api_keys' ) ) ) );
 $end_point = sanitize_text_field( ( trim( get_option( 'ets_wp_openai_end_point' ) ) ) );
+$model_engine = sanitize_text_field( ( trim( get_option( 'ets_wp_openai_model_engine' ) ) ) );
 
 ?>
 
@@ -28,6 +29,7 @@ $end_point = sanitize_text_field( ( trim( get_option( 'ets_wp_openai_end_point' 
           <input type="password"  id="api_keys" name="api_keys" class=" regular-text" value="<? echo esc_att( $api_keys ); ?>">
         </td>
       </tr>
+
       <tr class="form-row">
         <th class="form-cell">
           <label for="endpoint_url"><?php esc_html_e( 'Set the API endpoint URL', 'connect-ai-discord' ); ?></label>
@@ -36,6 +38,16 @@ $end_point = sanitize_text_field( ( trim( get_option( 'ets_wp_openai_end_point' 
           <input type="text" id="endpoint_url" name="endpoint_url" class=" regular-text" value="<?php echo esc_attr( $end_point ); ?>">
         </td>
       </tr>
+
+      <tr class="form-row">
+        <th class="form-cell">
+          <label for="model_engine"><?php esc_html_e( 'Choose the OpenAI model', 'connect-ai-discord' ); ?></label>
+        </th>
+        <td class="form-cell">
+          <input type="text" id="model_engine" name="model_engine" class=" regular-text" value="<?php echo esc_attr( $model_engine ); ?>">
+        </td>
+      </tr>
+
     </table>
 
     <input type="submit" value="<?php esc_html_e( 'Save Changes', 'connect-ai-discord' ); ?>" class="form-submit">
